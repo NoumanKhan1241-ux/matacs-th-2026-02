@@ -1,59 +1,84 @@
+
 # MATACS Associate Software Developer Assessment
 
-**Candidate:** Muhammad Nouman Khan
-
-**Assessment Reference:** MATACS-TH-2026-02
+**Candidate:** Muhammad Nouman Khan  
+**Assessment Reference:** MATACS-TH-2026-02  
 
 ## Overview
 
-This assessment explores how I would design an AI assisted system for reviewing and ranking contractor proposals. My main focus is to make the process reliable, explainable and easy for a human reviewer to understand.
+This assessment explores the design of an AI-assisted system for reviewing and ranking commercial solar installation proposals. The objective is to make proposal evaluation consistent, explainable, and auditable while keeping mandatory compliance checks and final procurement decisions under human control.
 
-## Files
+The proposed system combines AI-assisted information extraction with deterministic application logic for eligibility checks, weighted scoring, and ranking.
 
-- [Design Write Up](WRITEUP.md)
-- [AI Prompts](PROMPTS.md)
-- [Proposal Ranking](ranking.json)
-- [Process Flow Diagram](diagram/workflow.png)
+## Repository Structure
+
+- `README.md` — Project overview, setup instructions, and implementation notes.
+- `WRITEUP.md` — Design approach, scoring methodology, risks, and safeguards.
+- `PROMPTS.md` — Prompts used during the assessment and proposed extraction workflow.
+- `ranking.json` — Proposal ranking and explanations.
+- `diagram/workflow.png` — Workflow diagram.
+- `prototype/run.py` — Python offline prototype.
+- `prototype/extraction_prompt.txt` — Proposed proposal-extraction prompt.
+- `prototype/samples/` — Sample proposal text files A–E.
+- `prototype/outputs/` — Generated proposal results and ranking.
+- `prototype/reviews.json` — Saved human-review decisions.
+- `prototype/requirements.txt` — Prototype dependency information.
 
 ## Design Approach
 
-My approach is to use AI for extracting information from proposal documents and understanding qualitative details. I would use normal application logic to check mandatory requirements, calculate scores and produce the ranking. A human reviewer would check uncertain results and make the final decision.
+The proposed system uses AI to extract relevant information from contractor proposals into a consistent structure. Extracted information would include pricing, experience, completion timelines, warranties, licensing, insurance, WSIB clearance, and team details.
 
-## Use of AI Tools
+Deterministic application logic would then validate mandatory requirements, calculate weighted scores, and produce a ranking. Missing or conflicting information would be flagged for clarification rather than guessed. Instructions embedded within proposal documents would be treated as untrusted content and would not be allowed to influence the evaluation rules.
 
-I used ChatGPT to help organize my ideas, explore possible risks and review my proposed scoring approach. I did not accept every suggestion without considering the assessment requirements. For example, I chose to flag Proposal D for clarification instead of assuming a completion time that was not provided in the proposal.
+A human reviewer would verify important evidence, review flagged proposals, and make the final procurement decision.
 
+## Optional Prototype
 
-## Prototype
-
-I developed an offline Python prototype to demonstrate how proposal-review automation could work. It inspects sample proposal files, performs basic keyword and text checks, identifies missing information, detects suspicious embedded instructions, and generates JSON outputs for review.
+I developed an offline Python prototype to demonstrate key parts of the proposed workflow.
 
 ### Features
 
-- **Proposal inspection:** Reads the five sample proposals (A–E).
-- **Basic text checks:** Looks for information related to licensing, WSIB, insurance, pricing, timelines, and warranties.
-- **Risk identification:** Flags suspicious embedded instructions so they cannot influence the scoring process.
-- **Human review:** Records a review decision and reason for Proposal C before allowing it to be considered for ranking.
-- **Eligibility checks:** Flags missing or inconsistent information and identifies proposals that do not meet the configured requirements.
-- **Scoring and ranking:** Calculates weighted scores for eligible proposals with complete scoring inputs.
-- **JSON outputs:** Saves individual proposal results, a generated ranking, and human-review decisions.
+- Reads and inspects sample proposals A–E.
+- Performs basic keyword and text checks.
+- Identifies missing information and suspicious embedded instructions.
+- Demonstrates eligibility checks and human-review logging.
+- Calculates weighted scores using configured demonstration data.
+- Generates JSON outputs for individual proposals and the ranking.
 
 ### Technology
 
 - Python 3
-- Python standard library (`json`, `re`, `pathlib`, and `datetime`)
+- Python standard library
 - JSON for structured outputs
 
 ### How to Run
 
-From the repository root, execute:
+From the repository root, run:
 
 ```bash
 python prototype/run.py
 ```
 
-The prototype reads sample files from `prototype/samples/` and saves generated results in `prototype/outputs/`. Human-review decisions are stored in `prototype/reviews.json`.
+The script reads sample files from `prototype/samples/` and writes generated results to `prototype/outputs/`. Human-review decisions are stored in `prototype/reviews.json`.
 
-### Current Limitations
+No external Python packages or API key are required for the current offline version.
 
-This is an offline proof of concept, not a production-ready AI extraction system. It uses keyword-based text checks and simulated scoring inputs; it does not call a live AI model or independently verify contractor credentials, insurance, WSIB clearance, or supporting evidence. The human-review step demonstrates an approval workflow but does not replace a formal procurement review. The results should therefore be treated as illustrative rather than as verified procurement recommendations.
+### Current Limitation: API Credit Availability
+
+The prototype is temporarily operating offline because of API credit limitations encountered during development. It does not currently perform live AI-powered extraction.
+
+Instead, it uses basic keyword and text checks against the sample files, while scoring inputs are simulated demonstration data. Consequently, its output should not be treated as independently verified proposal information or as the result of a live AI model.
+
+The extraction prompt and proposed JSON schema demonstrate how AI-assisted extraction could be integrated when API access is available. A future implementation would validate model responses, retain supporting evidence, and pass verified information to the deterministic eligibility and scoring logic.
+
+## Use of AI Tools
+
+I used ChatGPT to help organize my design approach, develop and refine prompts, consider risks, and improve the documentation and prototype logic. I reviewed the suggestions against the assessment requirements rather than accepting them automatically.
+
+The prototype was implemented as an offline demonstration after API credit limitations prevented live model-based extraction. This limitation is disclosed explicitly, and the current scoring inputs are simulated rather than AI-extracted.
+
+## Important Limitations
+
+This submission demonstrates a proposed design and an offline proof of concept, not a production-ready procurement platform. The prototype does not independently verify contractor licences, WSIB clearance, insurance coverage, or experience claims. These details would require appropriate evidence and human verification before a real procurement decision.
+
+The system is intended to support transparent evaluation and human judgment, not replace them.
