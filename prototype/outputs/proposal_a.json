@@ -1,0 +1,33 @@
+{
+  "proposal": "A",
+  "status": "ranked",
+  "rank": 1,
+  "score": 85.5,
+  "simulated_scoring_inputs": {
+    "licence_number": "ON-SAMPLE-123",
+    "experience": 14,
+    "price": 238000,
+    "weeks": 12,
+    "panel": 25,
+    "workmanship": 10,
+    "team": 100
+  },
+  "evidence_checks": {
+    "sample_file": "proposal_a.txt",
+    "sample_text_checks": {
+      "mentions_licence": true,
+      "mentions_wsib": true,
+      "mentions_insurance": true,
+      "mentions_price": true,
+      "mentions_timeline": true,
+      "mentions_warranty": true,
+      "contains_suspicious_instruction": false
+    },
+    "observed_price_cad": 238000.0,
+    "observed_completion_weeks": 12,
+    "review_issues": []
+  },
+  "review_issues": [],
+  "human_review": null,
+  "extraction_mode": "offline_keyword_checks_and_simulated_data"
+}

@@ -1,0 +1,41 @@
+{
+  "proposal": "C",
+  "status": "flagged",
+  "rank": null,
+  "score": null,
+  "simulated_scoring_inputs": {
+    "licence_number": "ON-SAMPLE-789",
+    "experience": 9,
+    "price": 244000,
+    "weeks": 14,
+    "panel": 25,
+    "workmanship": 10,
+    "team": 75
+  },
+  "evidence_checks": {
+    "sample_file": "proposal_c.txt",
+    "sample_text_checks": {
+      "mentions_licence": true,
+      "mentions_wsib": true,
+      "mentions_insurance": true,
+      "mentions_price": true,
+      "mentions_timeline": true,
+      "mentions_warranty": true,
+      "contains_suspicious_instruction": true
+    },
+    "observed_price_cad": 244000.0,
+    "observed_completion_weeks": 14,
+    "review_issues": [
+      "Suspicious embedded instruction detected. It must not influence scoring."
+    ]
+  },
+  "review_issues": [
+    "Suspicious embedded instruction detected. It must not influence scoring."
+  ],
+  "human_review": {
+    "approved": false,
+    "reviewer_reason": "Review not approved or evidence not verified.",
+    "reviewed_at": "2026-10-29T18:24:53"
+  },
+  "extraction_mode": "offline_keyword_checks_and_simulated_data"
+}

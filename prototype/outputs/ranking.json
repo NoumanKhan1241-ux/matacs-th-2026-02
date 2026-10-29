@@ -1,0 +1,182 @@
+[
+  {
+    "proposal": "A",
+    "status": "ranked",
+    "rank": 1,
+    "score": 85.5,
+    "simulated_scoring_inputs": {
+      "licence_number": "ON-SAMPLE-123",
+      "experience": 14,
+      "price": 238000,
+      "weeks": 12,
+      "panel": 25,
+      "workmanship": 10,
+      "team": 100
+    },
+    "evidence_checks": {
+      "sample_file": "proposal_a.txt",
+      "sample_text_checks": {
+        "mentions_licence": true,
+        "mentions_wsib": true,
+        "mentions_insurance": true,
+        "mentions_price": true,
+        "mentions_timeline": true,
+        "mentions_warranty": true,
+        "contains_suspicious_instruction": false
+      },
+      "observed_price_cad": 238000.0,
+      "observed_completion_weeks": 12,
+      "review_issues": []
+    },
+    "review_issues": [],
+    "human_review": null,
+    "extraction_mode": "offline_keyword_checks_and_simulated_data"
+  },
+  {
+    "proposal": "B",
+    "status": "ineligible",
+    "rank": null,
+    "score": null,
+    "simulated_scoring_inputs": {
+      "licence_number": null,
+      "experience": 6,
+      "price": 189500,
+      "weeks": 10,
+      "panel": 25,
+      "workmanship": 5,
+      "team": 50
+    },
+    "evidence_checks": {
+      "sample_file": "proposal_b.txt",
+      "sample_text_checks": {
+        "mentions_licence": true,
+        "mentions_wsib": true,
+        "mentions_insurance": true,
+        "mentions_price": true,
+        "mentions_timeline": true,
+        "mentions_warranty": true,
+        "contains_suspicious_instruction": false
+      },
+      "observed_price_cad": 189500.0,
+      "observed_completion_weeks": 10,
+      "review_issues": []
+    },
+    "review_issues": [
+      "Bidder-held electrical licence is not established."
+    ],
+    "human_review": null,
+    "extraction_mode": "offline_keyword_checks_and_simulated_data"
+  },
+  {
+    "proposal": "C",
+    "status": "flagged",
+    "rank": null,
+    "score": null,
+    "simulated_scoring_inputs": {
+      "licence_number": "ON-SAMPLE-789",
+      "experience": 9,
+      "price": 244000,
+      "weeks": 14,
+      "panel": 25,
+      "workmanship": 10,
+      "team": 75
+    },
+    "evidence_checks": {
+      "sample_file": "proposal_c.txt",
+      "sample_text_checks": {
+        "mentions_licence": true,
+        "mentions_wsib": true,
+        "mentions_insurance": true,
+        "mentions_price": true,
+        "mentions_timeline": true,
+        "mentions_warranty": true,
+        "contains_suspicious_instruction": true
+      },
+      "observed_price_cad": 244000.0,
+      "observed_completion_weeks": 14,
+      "review_issues": [
+        "Suspicious embedded instruction detected. It must not influence scoring."
+      ]
+    },
+    "review_issues": [
+      "Suspicious embedded instruction detected. It must not influence scoring."
+    ],
+    "human_review": {
+      "approved": false,
+      "reviewer_reason": "Review not approved or evidence not verified.",
+      "reviewed_at": "2026-10-29T18:24:53"
+    },
+    "extraction_mode": "offline_keyword_checks_and_simulated_data"
+  },
+  {
+    "proposal": "D",
+    "status": "flagged",
+    "rank": null,
+    "score": null,
+    "simulated_scoring_inputs": {
+      "licence_number": "ON-SAMPLE-456",
+      "experience": 11,
+      "price": 231000,
+      "weeks": null,
+      "panel": 25,
+      "workmanship": 10,
+      "team": 75
+    },
+    "evidence_checks": {
+      "sample_file": "proposal_d.txt",
+      "sample_text_checks": {
+        "mentions_licence": true,
+        "mentions_wsib": true,
+        "mentions_insurance": true,
+        "mentions_price": true,
+        "mentions_timeline": true,
+        "mentions_warranty": true,
+        "contains_suspicious_instruction": false
+      },
+      "observed_price_cad": 231000.0,
+      "observed_completion_weeks": null,
+      "review_issues": [
+        "Could not extract a completion duration."
+      ]
+    },
+    "review_issues": [
+      "Completion timeline is missing; human clarification is required before ranking.",
+      "Could not extract a completion duration."
+    ],
+    "human_review": null,
+    "extraction_mode": "offline_keyword_checks_and_simulated_data"
+  },
+  {
+    "proposal": "E",
+    "status": "ranked",
+    "rank": 2,
+    "score": 68.7,
+    "simulated_scoring_inputs": {
+      "licence_number": "ON-SAMPLE-345",
+      "experience": 8,
+      "price": 242500,
+      "weeks": 13,
+      "panel": 25,
+      "workmanship": 12,
+      "team": 100
+    },
+    "evidence_checks": {
+      "sample_file": "proposal_e.txt",
+      "sample_text_checks": {
+        "mentions_licence": true,
+        "mentions_wsib": true,
+        "mentions_insurance": true,
+        "mentions_price": true,
+        "mentions_timeline": true,
+        "mentions_warranty": true,
+        "contains_suspicious_instruction": false
+      },
+      "observed_price_cad": 242500.0,
+      "observed_completion_weeks": 13,
+      "review_issues": []
+    },
+    "review_issues": [],
+    "human_review": null,
+    "extraction_mode": "offline_keyword_checks_and_simulated_data"
+  }
+]
