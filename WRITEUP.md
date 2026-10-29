@@ -41,3 +41,13 @@ Previously scored evaluations would retain their original criteria version so th
 - **Cost and performance:** Processing every document with a large model could be expensive. I would extract only relevant information, limit unnecessary model calls, and cache results against the document version. Any change to a document would trigger a new extraction.
 
 The system would assist the reviewer rather than make the final procurement decision. Mandatory requirements, transparent scoring, and human approval would remain central to the process.
+
+## 6. Prototype Implementation and Current Limitations
+
+I created an optional Python prototype to demonstrate the proposed workflow, including sample proposal inspection, basic text checks, suspicious-instruction detection, review logging, and JSON output generation.
+
+The prototype is temporarily operating in offline mode because of API credit limitations encountered during development. As a result, it does not currently perform live AI-powered extraction. It uses basic keyword and text checks against the sample files, while the scoring inputs are simulated demonstration data. Therefore, its outputs should not be interpreted as independently verified proposal facts or as the result of a live AI model.
+
+The extraction prompt and proposed JSON schema are included separately to demonstrate how AI-assisted extraction could be implemented when API access is available. With sufficient API credits, the next step would be to integrate the model, validate its structured responses, preserve supporting evidence, and pass verified data into the deterministic eligibility and scoring logic.
+
+The prototype is a proof of concept rather than a production-ready procurement system. Contractor licences, WSIB clearance, insurance coverage, experience claims, and other supporting evidence would still require appropriate verification. The system would assist human reviewers rather than replace their judgment or make the final procurement decision.
