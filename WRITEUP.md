@@ -11,7 +11,10 @@ I would use normal application code for mandatory checks, score calculations, we
 
 The admin would configure criteria, weights, mandatory requirements, and scoring rules through the application. The system would validate that the weighted criteria total 100% before scoring begins.
 
-For repeatable results, I would use the same scoring formulas and a versioned criteria configuration for every proposal in an evaluation. For example, experience could be scored using the number of qualifying installations, while timeline scores would reward shorter completion times within the required limit. Price and warranty scores would use defined formulas rather than AI-generated judgments.
+
+For repeatable results, I would use the same scoring formulas and a versioned criteria configuration for every proposal in an evaluation. Experience would be scored as the qualifying installation count divided by 15, multiplied by 100, capped at 100. Price would be scored relative to the budget ceiling and the lowest-priced eligible proposal. Timeline would be scored as (16 minus completion weeks) divided by 16, multiplied by 100. Warranty would average the panel warranty score, capped at 25 years, and workmanship warranty score, capped at 12 years. Team and approach would award 25 points each for a named lead, crew details, a safety plan, and a monitoring or reporting plan. Each criterion score would be multiplied by its configured weight, and the weighted results would be added to produce a total out of 100.
+
+For example, experience could be scored using the number of qualifying installations, while timeline scores would reward shorter completion times within the required limit. Price and warranty scores would use defined formulas rather than AI-generated judgments.
 
 Each result would show the individual criterion scores, total weighted score, evidence used, and reason for the position. If a required fact is missing or unclear, the system would flag it instead of inventing a value. Using the same verified information and rules should produce the same ranking.
 
